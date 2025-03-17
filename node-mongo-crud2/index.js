@@ -21,6 +21,7 @@ const Item = mongoose.model('Item', ItemSchema);
 app.post('/items', async (req, res) => {
     try {
         const newItem = new Item(req.body);
+        
         await newItem.save();
         res.status(201).send(newItem);
     } catch (err) {
